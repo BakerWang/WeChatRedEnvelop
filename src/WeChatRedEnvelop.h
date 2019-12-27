@@ -68,7 +68,7 @@
 
 @interface MMLanguageMgr: NSObject
 
-- (id)getStringForCurLanguage:(id)arg1 defaultTo:(id)arg2;
+- (id)getStringForCurLanguage:(id)arg1;
 
 
 @end
@@ -144,22 +144,22 @@
 @interface NewQRCodeScanner: NSObject
 
 - (id)initWithDelegate:(id)arg1 CodeType:(int)arg2;
-- (void)notifyResult:(id)arg1 type:(id)arg2 version:(int)arg3;
+- (void)notifyResult:(id)arg1 type:(id)arg2 version:(int)arg3 rawData:(NSData *)arg4;
 
 @end
 
 #pragma mark - MMTableView
 
-@interface MMTableViewInfo
+@interface WCTableViewManager
 
-- (id)getTableView;
 - (void)clearAllSection;
-- (void)addSection:(id)arg1;
+- (id)getTableView;
 - (void)insertSection:(id)arg1 At:(unsigned int)arg2;
+- (void)addSection:(id)arg1;
 
-@end
+@end    
 
-@interface MMTableViewSectionInfo
+@interface WCTableViewSectionManager
 
 + (id)sectionInfoDefaut;
 + (id)sectionInfoHeader:(id)arg1;
@@ -168,13 +168,18 @@
 
 @end
 
-@interface MMTableViewCellInfo
+@interface WCTableViewCellManager
 
-+ (id)normalCellForSel:(SEL)arg1 target:(id)arg2 title:(id)arg3 accessoryType:(long long)arg4;
++ (id)normalCellForSel:(SEL)arg1 target:(id)arg2 title:(id)arg3;
++ (id)normalCellForSel:(SEL)arg1 target:(id)arg2 title:(id)arg3 rightValue:(id)arg4 WithDisclosureIndicator:(_Bool)arg5;
+
 + (id)switchCellForSel:(SEL)arg1 target:(id)arg2 title:(id)arg3 on:(_Bool)arg4;
-+ (id)normalCellForSel:(SEL)arg1 target:(id)arg2 title:(id)arg3 rightValue:(id)arg4 accessoryType:(long long)arg5;
+
+@end
+
+@interface WCTableViewNormalCellManager
+
 + (id)normalCellForTitle:(id)arg1 rightValue:(id)arg2;
-+ (id)urlCellForTitle:(id)arg1 url:(id)arg2;
 
 @end
 
@@ -209,32 +214,13 @@
 
 @end
 
-
-@protocol ContactSelectViewDelegate <NSObject>
-
-- (void)onSelectContact:(CContact *)arg1;
-
-@end
-
 @interface ContactSelectView : UIView
 
-@property(nonatomic) unsigned int m_uiGroupScene; // @synthesize m_uiGroupScene;
-@property(nonatomic) _Bool m_bMultiSelect; // @synthesize m_bMultiSelect;
-@property(retain, nonatomic) NSMutableDictionary *m_dicMultiSelect; // @synthesize m_dicMultiSelect;
+@property(nonatomic) _Bool m_bHideSearchBar; // @synthesize m_bHideSearchBar=_m_bHideSearchBar;
 
-- (id)initWithFrame:(struct CGRect)arg1 delegate:(id)arg2;
-- (void)initData:(unsigned int)arg1;
-- (void)initView;
 - (void)addSelect:(id)arg1;
 
 @end
-
-@interface ContactsDataLogic : NSObject
-
-@property(nonatomic) unsigned int m_uiScene; // @synthesize m_uiScene;
-
-@end
-
 @interface MMUINavigationController : UINavigationController
 
 @end
@@ -310,9 +296,14 @@
 @interface MultiSelectContactsViewController : UIViewController
 
 @property(nonatomic) _Bool m_bKeepCurViewAfterSelect; // @synthesize m_bKeepCurViewAfterSelect=_m_bKeepCurViewAfterSelect;
+@property(nonatomic) _Bool m_bShowHistoryGroup; // @synthesize m_bShowHistoryGroup;
 @property(nonatomic) unsigned int m_uiGroupScene; // @synthesize m_uiGroupScene;
+@property(nonatomic) int m_scene; // @synthesize m_scene=_m_scene;
+@property(nonatomic) _Bool m_onlyChatRoom; // @synthesize m_onlyChatRoom=_m_onlyChatRoom;
 
 @property(nonatomic, weak) id <MultiSelectContactsViewControllerDelegate> m_delegate; // @synthesize m_delegate;
+
+- (void)updatePanelBtn;
 
 @end
 

@@ -2,6 +2,10 @@
 
 目前市面上最稳定、功能最全的 iOS 版微信抢红包插件。
 
+```
+2019-07-03 已更新，支持最新版微信。
+```
+
 ## 功能特色
 
 - **完全原生体验**
@@ -49,8 +53,8 @@
 
 ## 应用截图
 
-<img src="./ScreenShots/Setting.jpeg" height="568" hspace="20">
-<img src="./ScreenShots/AssistantSetting.jpeg" height="568" hspace="20">
+<img src="./ScreenShots/Setting.jpg" height="568" hspace="20">
+<img src="./ScreenShots/AssistantSetting.jpg" height="568" hspace="20">
 
 ## 支持作者
 
@@ -58,5 +62,10 @@
 
 插件的开发占用了我大量的时间和精力，如果你觉得这个插件对你有帮助（帮你抢到了比之前更多的红包），不妨进行一下小额捐赠，这样我会有更大的动力去完善、优化它。
 
-<img src="./ScreenShots/WechatPay.jpeg" height="300" hspace="20">
-<img src="./ScreenShots/AliPay.jpeg" height="300" hspace="20">
+<img src="./ScreenShots/WechatReward.jpeg" height="280" hspace="20">
+<img src="./ScreenShots/AliPay.jpeg" height="280" hspace="20">
+
+**现已支持信用卡赞赏！**
+
+<img src="./ScreenShots/WechatPayCredit.jpg" height="280" hspace="20">
+
